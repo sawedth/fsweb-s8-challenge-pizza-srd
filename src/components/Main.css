@@ -1,0 +1,19 @@
+.header{
+    width: 300px;
+    margin-bottom: 40px;
+}
+
+.banner-yazi{
+    font-family: "Roboto Condensed";
+    color: white;
+    font-size: 80px;
+    margin: 0px;
+
+}
+
+#aciktim {
+    margin-top: 40px;
+    padding: 10px 50px; 
+    border-radius: 36px;
+    background-color: #FDC913;
+}
