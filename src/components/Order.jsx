@@ -1,12 +1,15 @@
 import logo from '../assets/logo.svg'
 import './Order.css';
-import { Form, FormGroup, Input, Label, Col, Row, Button, ButtonGroup } from 'reactstrap';
+import { Form, FormGroup, Input, Label, Col, Button, ButtonGroup, Card, CardBody, CardTitle, CardText } from 'reactstrap';
 import { useState } from 'react';
 
 export default function Order() {
     const [rSelected, setRSelected] = useState(null);
     const [pizzaCounter, setPizzaCounter] = useState(1)
-
+    function handleSubmit(event){
+        event.preventDefault();
+        console.log(event);
+    }
     return (
         <>
             <div className="header">
@@ -29,7 +32,7 @@ export default function Order() {
                     dolorem voluptas minima ducimus numquam architecto maxime
                     placeat unde quaerat perspiciatis porro eligendi expedita et.</p>
             </div>
-            <Form >
+            <Form onSubmit={handleSubmit}>
                 <FormGroup className='form' check>
 
                     <Col className='col-1'>
@@ -90,12 +93,12 @@ export default function Order() {
                     </Col>
                 </FormGroup>
                 <div className='checkbox-header'>
-                        <Label for="checkbox" id='me-2-checkboxes'><b>Ek Malzemeler</b></Label>
-                        <p>Lütfen en az 4, en fazla 10 malzeme seçiniz.</p>
+                    <Label for="checkbox" id='me-2-checkboxes'><b>Ek Malzemeler</b></Label>
+                    <p>Lütfen en az 4, en fazla 10 malzeme seçiniz.</p>
                 </div>
                 <div className='checkboxes'>
-                    
-                    
+
+
                     <div className='checkbox-column'>
                         <FormGroup
                             check
@@ -232,7 +235,62 @@ export default function Order() {
                         </FormGroup>
                     </div>
                 </div>
+                <div className='notes'>
+                    <Label
+                        for="name"
+                    >
+                        <b>Ad ve Soyad</b>
+                    </Label>
 
+                    <Input
+                        id="name"
+                        name="name"
+                        placeholder="Adınız Soyadınız"
+                        type="text"
+                    />
+                    <Label
+                        for="orderText"
+                        style={{ marginTop: "1rem" }}
+
+                    >
+                        <b>Sipariş Notu</b>
+                    </Label>
+
+                    <Input
+                        id="orderText"
+                        name="orderText"
+                        type="textarea"
+                        placeholder="Siparişinize eklemek istediğiniz bir şey var mı?"
+                    />
+                </div>
+                <div className='submitter'>
+                    <div className='counter'>
+                        <button className="pizza-button">-</button>
+                        <p className="pizza-count">{pizzaCounter}</p>
+                        <button className="pizza-button">+</button>
+                    </div>
+                    <Card
+                        className="pizza-card"
+                        style={{
+                            width: '18rem'
+                        }}
+                    >
+                        <CardBody className='pizza-card-body'>
+                            <CardTitle tag="h5">
+                                Sipariş Toplamı
+                            </CardTitle>
+                            <CardText>
+                                Seçimler:
+                            </CardText>
+                            <CardText>
+                                Toplam:
+                            </CardText>
+                            <Button >
+                                Sipariş Ver
+                            </Button>
+                        </CardBody>
+                    </Card>
+                </div>
 
             </Form>
         </>
