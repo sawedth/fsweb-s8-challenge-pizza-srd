@@ -17,3 +17,8 @@
     border-radius: 36px;
     background-color: #FDC913;
 }
+
+#aciktim:hover {
+    background-color: #ffc905b5;
+    border-color: #FDC913;
+}

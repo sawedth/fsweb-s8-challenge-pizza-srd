@@ -1,0 +1,176 @@
+main {
+  min-width: 900px;
+}
+
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #CE2829;
+  width: 100%;
+  padding: 0rem 37%;
+  margin-bottom: 1.4rem;
+}
+
+#header-logo {
+  padding: 1rem 15%;
+}
+
+.header-nav {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  width: 450px;
+  text-align: left;
+  justify-content: bottom;
+  font-size: 0.8rem;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: rgba(245, 245, 245, 0.804);
+}
+
+.header-nav a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.header-nav a:after {
+  content: '-';
+  padding: 0 0.2rem;
+}
+
+.header-nav a:last-child:after {
+  content: '';
+}
+
+#choosen-nav {
+  color: white;
+}
+
+.pizza-attiributes {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0rem auto;
+  text-align: left;
+  width: 100%;
+  padding: 0rem 37%;
+  min-width: 190px;
+}
+
+.pizza-attiributes h4 {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.pizza-ratings {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0px;
+  align-items: flex-end;
+}
+
+
+.pizza-ratings p {
+  text-align: bottom;
+  margin-bottom: 0px;
+  color: rgb(121, 121, 121);
+}
+
+.pizza-ratings h2 {
+  text-align: bottom;
+  margin-bottom: 0px;
+  font-size: 1.7rem;
+}
+
+#first-child {
+  padding-left: 100px;
+}
+
+.pizza-attiributes p {
+  color: rgb(121, 121, 121);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  line-height: 1.8;
+}
+
+.form {
+  width: 100%;
+  padding: 2rem 37%;
+}
+
+.col-1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form {
+  width: 100%;
+  margin: 0 auto;
+
+}
+
+.size-radio {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.col-form-label {
+  width: 100%;
+}
+
+.dough-select {
+  width: 40%;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#me-2-form {
+  padding: 0px 0px;
+}
+
+.checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem 37% 2rem 37%;
+  text-align: left;
+  font-size: 0.9rem;
+  justify-content: space-between;
+}
+
+.last-checkbox {
+  margin-right: 0px;
+
+}
+
+.checkbox-column {
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+}
+
+.checkbox-header {
+  padding: 0px 37%;
+  text-align: left;
+}
+
+#me-2-checkboxes {
+  margin: 0;
+}
+
+.checkbox-header p {
+  color: rgb(121, 121, 121);
+  font-size: 0.9rem;
+}
