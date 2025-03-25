@@ -1,15 +1,72 @@
 import logo from '../assets/logo.svg'
 import './Order.css';
 import { Form, FormGroup, Input, Label, Col, Button, ButtonGroup, Card, CardBody, CardTitle, CardText } from 'reactstrap';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
+const mockData = {
+    name: "",
+    orderNote: "",
+    size: "",
+    selectedDough: "",
+    pizzaCounter: "",
+    toppings: [],
+    note: ""
+}
 
 export default function Order() {
-    const [rSelected, setRSelected] = useState(null);
+    const [size, setSize] = useState("");
     const [pizzaCounter, setPizzaCounter] = useState(1)
-    function handleSubmit(event){
-        event.preventDefault();
-        console.log(event);
+    const [toppings, setToppings] = useState([]);
+    const [selectedDough, setSelectedDough] = useState("İnce");
+    const [name, setName] = useState("");
+    const [orderNote, setOrderNote] = useState("");
+    const [user, setUser] = useState(mockData);
+    const [pizzaValue, setPizzaValue] = useState(85.50);
+    const [isDisabled, setIsDisabled] = useState(true);
+    let history = useHistory();
+
+    function handleCheckbox(event) {
+        if (event.target.checked) {
+            setToppings([...toppings, event.target.name]);
+        } else {
+            const newArr = toppings.filter((topping) => topping !== event.target.name);
+            setToppings(newArr);
+        }
+
     }
+
+    useEffect(() => {
+        setPizzaValue(pizzaCounter*(toppings.length * 5 + 85.50));
+        setUser({
+            name: name,
+            orderNote: orderNote,
+            size: size,
+            selectedDough: selectedDough,
+            pizzaCounter: pizzaCounter,
+            toppings: toppings,
+            note: orderNote
+        })
+        
+        if(size !== "" && toppings.length < 11 && toppings.length > 3 && name.length > 3){
+            setIsDisabled(false);
+        }else{
+            setIsDisabled(true);
+        }
+    }, [size, pizzaCounter, toppings, selectedDough, name, orderNote])
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        axios.post(" https://reqres.in/api/pizza", user).then((response) => {
+            console.log(response.data);
+            history.push("/orderconf");
+        }).catch((error) => {
+            console.log(error);
+        })
+
+    }
+
     return (
         <>
             <div className="header">
@@ -42,24 +99,24 @@ export default function Order() {
                                 <Button
                                     color="primary"
                                     outline
-                                    onClick={() => setRSelected(1)}
-                                    active={rSelected === 1}
+                                    onClick={() => setSize("s")}
+                                    active={size === "s"}
                                 >
                                     S
                                 </Button>
                                 <Button
                                     color="primary"
                                     outline
-                                    onClick={() => setRSelected(2)}
-                                    active={rSelected === 2}
+                                    onClick={() => setSize("m")}
+                                    active={size === "m"}
                                 >
                                     M
                                 </Button>
                                 <Button
                                     color="primary"
                                     outline
-                                    onClick={() => setRSelected(3)}
-                                    active={rSelected === 3}
+                                    onClick={() => setSize("l")}
+                                    active={size === "l"}
                                 >
                                     L
                                 </Button>
@@ -75,8 +132,10 @@ export default function Order() {
                             <Col sm={0}>
                                 <Input
                                     id="dough"
-                                    name="select"
+                                    name="doughSelect"
                                     type="select"
+                                    onChange={(event) => setSelectedDough(event.target.value)}
+                                    value={selectedDough}
                                 >
                                     <option>
                                         İnce
@@ -99,12 +158,14 @@ export default function Order() {
                 <div className='checkboxes'>
 
 
-                    <div className='checkbox-column'>
+                    <div className='checkbox-column' >
                         <FormGroup
                             check
                             inline
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="peperoni" />
                             <Label check>
                                 Peperoni
                             </Label>
@@ -112,8 +173,9 @@ export default function Order() {
                         <FormGroup
                             check
                             inline
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="sosis" />
                             <Label check>
                                 Sosis
                             </Label>
@@ -121,8 +183,10 @@ export default function Order() {
                         <FormGroup
                             check
                             inline
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="kanadaJambonu" />
                             <Label check>
                                 Kanada Jambonu
                             </Label>
@@ -130,8 +194,10 @@ export default function Order() {
                         <FormGroup
                             check
                             inline
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="tavukIzgara" />
                             <Label check>
                                 Tavuk Izgara
                             </Label>
@@ -139,8 +205,10 @@ export default function Order() {
                         <FormGroup
                             check
                             inline
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="soğan" />
                             <Label check>
                                 Soğan
                             </Label>
@@ -149,8 +217,10 @@ export default function Order() {
                     <div className='checkbox-column'><FormGroup
                         check
                         inline
+
+                        onClick={handleCheckbox}
                     >
-                        <Input type="checkbox" />
+                        <Input type="checkbox" name="domates" />
                         <Label check>
                             Domates
                         </Label>
@@ -158,8 +228,10 @@ export default function Order() {
                         <FormGroup
                             check
                             inline
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="mısır" />
                             <Label check>
                                 Mısır
                             </Label>
@@ -167,8 +239,10 @@ export default function Order() {
                         <FormGroup
                             check
                             inline
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="sucuk" />
                             <Label check>
                                 Sucuk
                             </Label>
@@ -176,8 +250,10 @@ export default function Order() {
                         <FormGroup
                             check
                             inline
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="jalepano" />
                             <Label check>
                                 Jalepano
                             </Label>
@@ -185,8 +261,10 @@ export default function Order() {
                         <FormGroup
                             check
                             inline
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="sarımsak" />
                             <Label check>
                                 Sarımsak
                             </Label>
@@ -197,8 +275,10 @@ export default function Order() {
                             check
                             inline
                             className='last-checkbox'
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="biber" />
                             <Label check>
                                 Biber
                             </Label>
@@ -207,8 +287,10 @@ export default function Order() {
                             check
                             inline
                             className='last-checkbox'
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="sucuk" />
                             <Label check>
                                 Sucuk
                             </Label>
@@ -217,8 +299,10 @@ export default function Order() {
                             check
                             inline
                             className='last-checkbox'
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="ananas" />
                             <Label check>
                                 Ananas
                             </Label>
@@ -227,8 +311,10 @@ export default function Order() {
                             check
                             inline
                             className='last-checkbox'
+
+                            onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" />
+                            <Input type="checkbox" name="kabak" />
                             <Label check>
                                 Kabak
                             </Label>
@@ -247,6 +333,8 @@ export default function Order() {
                         name="name"
                         placeholder="Adınız Soyadınız"
                         type="text"
+                        onChange={(event) => setName(event.target.value)}
+                        value={name}
                     />
                     <Label
                         for="orderText"
@@ -261,13 +349,24 @@ export default function Order() {
                         name="orderText"
                         type="textarea"
                         placeholder="Siparişinize eklemek istediğiniz bir şey var mı?"
+                        onChange={(event) => setOrderNote(event.target.value)}
+                        value={orderNote}
                     />
                 </div>
                 <div className='submitter'>
                     <div className='counter'>
-                        <button className="pizza-button">-</button>
+                        <button className="pizza-button"
+                            onClick={(event) => {
+                                event.preventDefault();
+                                pizzaCounter === 1 ? setPizzaCounter(1) : setPizzaCounter(pizzaCounter - 1);
+                                
+                            }}>-</button>
                         <p className="pizza-count">{pizzaCounter}</p>
-                        <button className="pizza-button">+</button>
+                        <button className="pizza-button"
+                            onClick={(event) => {
+                                event.preventDefault();
+                                setPizzaCounter(pizzaCounter + 1);
+                            }}>+</button>
                     </div>
                     <Card
                         className="pizza-card"
@@ -276,16 +375,35 @@ export default function Order() {
                         }}
                     >
                         <CardBody className='pizza-card-body'>
-                            <CardTitle tag="h5">
-                                Sipariş Toplamı
-                            </CardTitle>
-                            <CardText>
-                                Seçimler:
-                            </CardText>
-                            <CardText>
-                                Toplam:
-                            </CardText>
-                            <Button >
+                            <div className="pizza-card-text" >
+                                <CardTitle tag="h5" >
+                                    Sipariş Toplamı
+                                </CardTitle>
+
+                                <div className='order-lines'>
+                                    <CardText>
+                                        Seçimler:
+                                    </CardText>
+                                    <CardText>
+                                        {`${pizzaCounter * toppings.length * 5}.00₺`}
+                                    </CardText>
+                                </div>
+                                <div className='order-lines'>
+                                    <CardText style={{color:"red"}}>
+                                        Toplam:
+                                    </CardText>
+                                    <CardText style={{color:"red"}}>
+                                    {
+                                    
+                                    `${pizzaValue.toFixed(2)}₺`
+                                    }
+                                    </CardText>
+                                </div>
+
+
+                            </div>
+
+                            <Button id="siparis-ver" disabled={isDisabled}>
                                 Sipariş Ver
                             </Button>
                         </CardBody>

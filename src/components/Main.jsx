@@ -30,8 +30,8 @@ export default function Main() {
         <div style={background}>
             <div className='banner' style={bannerClass}>
                 <img src={logo} alt="Teknolojik Yemekler" className='header'/>
-                <h1 class="banner-yazi">KOD ACIKTIRIR</h1>
-                <h1 class="banner-yazi">PİZZA, DOYURUR</h1>
+                <h1 className="banner-yazi">KOD ACIKTIRIR</h1>
+                <h1 className="banner-yazi">PİZZA, DOYURUR</h1>
                 <button id="aciktim" onClick={handleClick}>ACIKTIM</button>
             </div>
 

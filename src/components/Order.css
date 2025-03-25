@@ -199,13 +199,14 @@ main {
 .pizza-button{
   width: 50px;
   height: 50px;
-  border: 1px solid black;
+  border: 1px solid #ffc905b5;
+  background-color: #FDC913;
 }
 
 .pizza-count{
   width: 50px;
   height: 50px;
-  border: 1px solid black;
+  border: 1px solid #ffc905b5;
   padding-top: 10px;
 }
 
@@ -219,4 +220,39 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 }
+
+#siparis-ver{
+  background-color: #FDC913;
+  color: black;
+  border-color: #ffc905b5;
+  width: 100%;
+}
+
+.pizza-card-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px; 
+  width: 100%;
+}
+
+.order-lines{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+@media(max-width: 1510px) {
+  .submitter{
+    flex-direction: column;
+    align-items: center;
+  }
+  .counter{
+    margin-left: 0px;
+  }
+}
+
