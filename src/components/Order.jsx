@@ -97,6 +97,7 @@ export default function Order() {
                             <Label for="button" id='me-2-form'><b>Boyut Seç</b></Label>
                             <ButtonGroup onClick={(event) => event.preventDefault()}>
                                 <Button
+                                    name='s'
                                     color="primary"
                                     outline
                                     onClick={() => setSize("s")}
@@ -105,6 +106,7 @@ export default function Order() {
                                     S
                                 </Button>
                                 <Button
+                                    name='m'
                                     color="primary"
                                     outline
                                     onClick={() => setSize("m")}
@@ -113,6 +115,7 @@ export default function Order() {
                                     M
                                 </Button>
                                 <Button
+                                    name='l'
                                     color="primary"
                                     outline
                                     onClick={() => setSize("l")}
