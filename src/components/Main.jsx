@@ -3,21 +3,23 @@ import banner from '../assets/home-banner.png'
 import logo from '../assets/logo.svg'
 import { useHistory } from 'react-router-dom';
 import './Main.css';
+import Footer from './Footer.jsx'
 
 const background = {
     width: "100%",
-    height: "100vh",
+    height: "1000px",
     backgroundImage: "url(" + banner + ")",
+    backgroundSize: "cover",
     backgroundPosition: "center"
 };
 
 const bannerClass = {
-display: "flex",
-flexDirection: "column",
-width: "40%",
-alignItems: "center",
-margin: "0 auto",
-padding: "10vh 0px"
+    display: "flex",
+    flexDirection: "column",
+    width: "40%",
+    alignItems: "center",
+    margin: "0 auto",
+    padding: "10vh 0px"
 };
 
 export default function Main() {
@@ -27,13 +29,16 @@ export default function Main() {
     }
 
     return (
-        <div style={background}>
-            <div className='banner' style={bannerClass}>
-                <img src={logo} alt="Teknolojik Yemekler" className='header'/>
-                <h1 className="banner-yazi">KOD ACIKTIRIR</h1>
-                <h1 className="banner-yazi">PİZZA, DOYURUR</h1>
-                <button id="aciktim" onClick={handleClick}>ACIKTIM</button>
+        <>
+            <div style={background}>
+                <div className='banner' style={bannerClass}>
+                    <img src={logo} alt="Teknolojik Yemekler" className='header' />
+                    <h1 className="banner-yazi">KOD ACIKTIRIR</h1>
+                    <h1 className="banner-yazi">PİZZA, DOYURUR</h1>
+                    <button id="aciktim" onClick={handleClick}>ACIKTIM</button>
+                </div>
             </div>
-
-        </div>);
+            <Footer />
+        </>
+    );
 };

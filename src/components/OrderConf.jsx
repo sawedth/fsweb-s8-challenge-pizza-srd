@@ -1,5 +1,6 @@
 import './OrderConf.css';
 import logo from '../assets/logo.svg'
+import Footer from './Footer.jsx'
 import { useState } from 'react';
 export default function OrderConf(prop) {
     const { user, toppings, value } = prop;
@@ -14,7 +15,7 @@ export default function OrderConf(prop) {
                     </div>
                     <h4 className='pizza-name'>Position Absolute Acı Pizza</h4>
                 </div>
-                <div className='pizza-card'>
+                <div className='pizza-card-conf'>
                     <p>Boyut: <b>{user[0]}</b></p>
                     <p>Hamur: <b>{user[1]}</b></p>
                     <p>Ek Malzemeler: <b>{toppings.join(", ")}</b></p>
@@ -33,6 +34,7 @@ export default function OrderConf(prop) {
 
                 </div>
             </div>
+            <Footer />
         </>
     );
 };

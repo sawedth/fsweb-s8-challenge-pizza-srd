@@ -1,0 +1,79 @@
+.foot-all{
+    background-color: #292929;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 50px;
+    font-family: barlow;
+    padding-left: 17%;
+    padding-right: 17%;
+}
+.yemek-info{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    color: rgba(255, 255, 255, 0.74);
+    min-width: 275px;
+}
+.footer-logo{
+    width: 170px;
+    margin: 40px 10px 20px;
+}
+.info-line{
+    display: flex;
+    text-align: left;
+}
+.icons{
+    width: 20px;
+    height: 20px;
+    margin: 0px 10px 10px;
+}
+
+.food-menu{
+    color: rgba(255, 255, 255, 0.74);
+    text-align: left;
+    margin-top: 70px;
+    width: 37%;
+}
+.food-menu h6{
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.food-menu p{
+    margin-bottom: 8px;
+}
+
+.insta-section{
+    display: flex;
+    flex-direction: column;
+    color:white;
+    margin-top: 70px;
+    text-align: left;
+}
+
+.insta-section h6{
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.insta-photos{
+    height: 80px;
+    width: 80px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.foot-bot{
+    height: 50px;
+    background-color: #292929;
+    color:rgba(255, 255, 255, 0.74);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 17%;
+    padding-right: 17%;
+    border-top: 1px solid #5F5F5F;
+    padding-top: 10px;
+}

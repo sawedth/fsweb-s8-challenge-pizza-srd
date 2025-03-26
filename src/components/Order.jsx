@@ -3,6 +3,7 @@ import './Order.css';
 import { Form, FormGroup, Input, Label, Col, Button, ButtonGroup, Card, CardBody, CardTitle, CardText } from 'reactstrap';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Footer from './Footer.jsx'
 
 const mockData = {
     name: "",
@@ -407,6 +408,7 @@ export default function Order(prop) {
                 </div>
 
             </Form>
+            <Footer />
         </>
     );
 };
