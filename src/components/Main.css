@@ -1,9 +1,9 @@
-.header{
+.header {
     width: 300px;
     margin-bottom: 40px;
 }
 
-.banner-yazi{
+.banner-yazi {
     font-family: "Roboto Condensed";
     color: white;
     font-size: 80px;
@@ -13,7 +13,7 @@
 
 #aciktim {
     margin-top: 40px;
-    padding: 10px 50px; 
+    padding: 10px 50px;
     border-radius: 36px;
     background-color: #FDC913;
 }
@@ -21,4 +21,146 @@
 #aciktim:hover {
     background-color: #ffc905b5;
     border-color: #FDC913;
+}
+
+.food-icon-banner {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 17%;
+}
+
+.food-icon-name {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0px;
+    margin: 1rem 0px;
+}
+
+.food-icon-name:hover {
+    border-color: #FDC913;
+}
+
+.food-icon-name p {
+    margin: 0px auto;
+    font-family: barlow;
+    font-weight: 500;
+    padding-left: 15px;
+}
+
+.main-all {
+    background-color: #FAF7F2;
+    padding: 80px 17%;
+}
+
+.sub-banners {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub-banners h1 {
+    font-family: "quattrocento";
+}
+
+.sub-banners button {
+    color: red;
+    padding: 7px 18px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+}
+
+.sub-banner-smalls {
+    font-weight: 500;
+    font-size: 1.3rem;
+
+}
+
+.sub-banner-smalls p {
+    margin-bottom: 0px;
+}
+
+.sub-banner-smalls button {
+    margin-top: 1rem;
+}
+
+.food-terminal {
+    margin-top: 100px
+}
+
+#second-banner-1 {
+    font-family: satisfy;
+    color: #CE2829;
+    font-weight: bold;
+}
+
+#second-banner-2 {
+    font-family: roboto;
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.food-terminal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.food-icon-terminal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vh 2vw;
+    border-radius: 2vw;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.food-icon-terminal:hover {
+    border-color: #FDC913;
+}
+
+.food-icon-terminal p {
+    margin: 0px auto;
+    font-family: barlow;
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+#choosen-pizza {
+    background-color: #292929;
+    color: white;
+}
+
+.other-foods {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0px;
+}
+
+.other-food-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20vw;
+    height: 25vw;
+    background-color: white;
+    border-radius: 1vw;
+    align-items: center;
+    padding: 2vw;
+}
+
+.card-food-big {
+    width: 17vw;
+}
+
+.other-food-card h6 {
+    width: 100%;
+    text-align: left;
+}
+
+.card-comments {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }

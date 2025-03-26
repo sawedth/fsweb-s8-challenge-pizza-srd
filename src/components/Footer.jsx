@@ -58,7 +58,7 @@ export default function Footer() {
       </div>
       <div className='foot-bot'>
         <p>@2025 Teknolojik Yemekler.</p>
-        <FontAwesomeIcon icon={faXTwitter} />
+        <FontAwesomeIcon style={{marginTop:"2px"}} icon={faXTwitter} />
       </div>
     </footer>
   );
