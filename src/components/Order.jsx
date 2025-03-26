@@ -2,12 +2,10 @@ import logo from '../assets/logo.svg'
 import './Order.css';
 import { Form, FormGroup, Input, Label, Col, Button, ButtonGroup, Card, CardBody, CardTitle, CardText } from 'reactstrap';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 const mockData = {
     name: "",
-    orderNote: "",
     size: "",
     selectedDough: "",
     pizzaCounter: "",
@@ -15,7 +13,8 @@ const mockData = {
     note: ""
 }
 
-export default function Order() {
+export default function Order(prop) {
+    const {handleSubmit} = prop;
     const [size, setSize] = useState("");
     const [pizzaCounter, setPizzaCounter] = useState(1)
     const [toppings, setToppings] = useState([]);
@@ -41,7 +40,6 @@ export default function Order() {
         setPizzaValue(pizzaCounter*(toppings.length * 5 + 85.50));
         setUser({
             name: name,
-            orderNote: orderNote,
             size: size,
             selectedDough: selectedDough,
             pizzaCounter: pizzaCounter,
@@ -55,17 +53,6 @@ export default function Order() {
             setIsDisabled(true);
         }
     }, [size, pizzaCounter, toppings, selectedDough, name, orderNote])
-
-    function handleSubmit(event) {
-        event.preventDefault();
-        axios.post(" https://reqres.in/api/pizza", user).then((response) => {
-            console.log(response.data);
-            history.push("/orderconf");
-        }).catch((error) => {
-            console.log(error);
-        })
-
-    }
 
     return (
         <>
@@ -89,7 +76,7 @@ export default function Order() {
                     dolorem voluptas minima ducimus numquam architecto maxime
                     placeat unde quaerat perspiciatis porro eligendi expedita et.</p>
             </div>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={(e) => handleSubmit(e, user, pizzaValue)}>
                 <FormGroup className='form' check>
 
                     <Col className='col-1'>
@@ -100,8 +87,8 @@ export default function Order() {
                                     name='s'
                                     color="primary"
                                     outline
-                                    onClick={() => setSize("s")}
-                                    active={size === "s"}
+                                    onClick={() => setSize("S")}
+                                    active={size === "S"}
                                 >
                                     S
                                 </Button>
@@ -109,8 +96,8 @@ export default function Order() {
                                     name='m'
                                     color="primary"
                                     outline
-                                    onClick={() => setSize("m")}
-                                    active={size === "m"}
+                                    onClick={() => setSize("M")}
+                                    active={size === "M"}
                                 >
                                     M
                                 </Button>
@@ -118,8 +105,8 @@ export default function Order() {
                                     name='l'
                                     color="primary"
                                     outline
-                                    onClick={() => setSize("l")}
-                                    active={size === "l"}
+                                    onClick={() => setSize("L")}
+                                    active={size === "L"}
                                 >
                                     L
                                 </Button>
@@ -141,6 +128,9 @@ export default function Order() {
                                     value={selectedDough}
                                 >
                                     <option>
+                                        Süpper İnce
+                                    </option>
+                                    <option>
                                         İnce
                                     </option>
                                     <option>
@@ -148,6 +138,9 @@ export default function Order() {
                                     </option>
                                     <option>
                                         Kalın
+                                    </option>
+                                    <option>
+                                        Kappkalın
                                     </option>
                                 </Input>
                             </Col>
@@ -168,7 +161,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="peperoni" />
+                            <Input type="checkbox" name="Peperoni" />
                             <Label check>
                                 Peperoni
                             </Label>
@@ -178,7 +171,7 @@ export default function Order() {
                             inline
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="sosis" />
+                            <Input type="checkbox" name="Sosis" />
                             <Label check>
                                 Sosis
                             </Label>
@@ -189,7 +182,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="kanadaJambonu" />
+                            <Input type="checkbox" name="Kanada Jambonu" />
                             <Label check>
                                 Kanada Jambonu
                             </Label>
@@ -200,7 +193,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="tavukIzgara" />
+                            <Input type="checkbox" name="Tavuk Izgara" />
                             <Label check>
                                 Tavuk Izgara
                             </Label>
@@ -211,7 +204,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="soğan" />
+                            <Input type="checkbox" name="Soğan" />
                             <Label check>
                                 Soğan
                             </Label>
@@ -223,7 +216,7 @@ export default function Order() {
 
                         onClick={handleCheckbox}
                     >
-                        <Input type="checkbox" name="domates" />
+                        <Input type="checkbox" name="Domates" />
                         <Label check>
                             Domates
                         </Label>
@@ -234,7 +227,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="mısır" />
+                            <Input type="checkbox" name="Mısır" />
                             <Label check>
                                 Mısır
                             </Label>
@@ -245,7 +238,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="sucuk" />
+                            <Input type="checkbox" name="Sucuk" />
                             <Label check>
                                 Sucuk
                             </Label>
@@ -256,7 +249,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="jalepano" />
+                            <Input type="checkbox" name="Jalepano" />
                             <Label check>
                                 Jalepano
                             </Label>
@@ -267,7 +260,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="sarımsak" />
+                            <Input type="checkbox" name="Sarımsak" />
                             <Label check>
                                 Sarımsak
                             </Label>
@@ -281,7 +274,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="biber" />
+                            <Input type="checkbox" name="Biber" />
                             <Label check>
                                 Biber
                             </Label>
@@ -293,7 +286,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="sucuk" />
+                            <Input type="checkbox" name="Sucuk" />
                             <Label check>
                                 Sucuk
                             </Label>
@@ -305,7 +298,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="ananas" />
+                            <Input type="checkbox" name="Ananas" />
                             <Label check>
                                 Ananas
                             </Label>
@@ -317,7 +310,7 @@ export default function Order() {
 
                             onClick={handleCheckbox}
                         >
-                            <Input type="checkbox" name="kabak" />
+                            <Input type="checkbox" name="Kabak" />
                             <Label check>
                                 Kabak
                             </Label>
@@ -379,11 +372,11 @@ export default function Order() {
                     >
                         <CardBody className='pizza-card-body'>
                             <div className="pizza-card-text" >
-                                <CardTitle tag="h5" >
+                                <CardTitle tag="h5" style={{color:"black"}}>
                                     Sipariş Toplamı
                                 </CardTitle>
 
-                                <div className='order-lines'>
+                                <div className='order-lines' style={{color:"black"}}>
                                     <CardText>
                                         Seçimler:
                                     </CardText>

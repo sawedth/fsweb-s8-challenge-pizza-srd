@@ -1,13 +1,36 @@
 import './OrderConf.css';
 import logo from '../assets/logo.svg'
-export default function OrderConf(){
+import { useState } from 'react';
+export default function OrderConf(prop) {
+    const { user, toppings, value } = prop;
+
     return (
         <>
             <div className='main'>
-                <img src={logo} alt="Teknolojik Yemekler" id='header-logo' />
-                <div className='text'>
-                    <h1 className='header-text'>TEBRİKLER!</h1>
-                    <h1 className='header-text'>SİPARİŞİNİZ ALINDI!</h1>
+                <div>
+                    <div className='text'>
+                        <h2 className='header-text-yellow'>lezzetin yolda</h2>
+                        <h1 className='header-text'>SİPARİŞ ALINDI!</h1>
+                    </div>
+                    <h6 className='pizza-name'>Position Absolute Pizza</h6>
+                </div>
+                <div className='pizza-card'>
+                    <p>Boyut: <b>{user[0]}</b></p>
+                    <p>Hamur: <b>{user[1]}</b></p>
+                    <p>Ek Malzemeler: <b>{toppings.join(", ")}</b></p>
+                </div>
+                <div className='order-card'>
+                    <h6>Sipariş Toplamı</h6>
+                    <div className='line-value'>
+                        <p>Seçimler </p>
+                        <div>{user[2] * toppings.length * 5}₺</div>
+                    </div>
+                    <div className='line-value'>
+                        <p>Toplam </p>
+                        <p>{value.toFixed(2)}₺</p>
+                    </div>
+
+
                 </div>
             </div>
         </>
