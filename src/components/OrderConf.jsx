@@ -12,7 +12,7 @@ export default function OrderConf(prop) {
                         <h2 className='header-text-yellow'>lezzetin yolda</h2>
                         <h1 className='header-text'>SİPARİŞ ALINDI!</h1>
                     </div>
-                    <h6 className='pizza-name'>Position Absolute Pizza</h6>
+                    <h4 className='pizza-name'>Position Absolute Acı Pizza</h4>
                 </div>
                 <div className='pizza-card'>
                     <p>Boyut: <b>{user[0]}</b></p>
