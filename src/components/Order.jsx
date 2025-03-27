@@ -159,60 +159,60 @@ export default function Order(prop) {
                 </div>
                 <div className='checkboxes'>
                     <label className="checkbox-container">Peperoni
-                        <input type="checkbox" name="Peperoni"onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                        <input type="checkbox" name="Peperoni" onClick={handleCheckbox}/>
+                            <span class="checkmark" name="peperoni"></span>
                     </label>
                     <label className="checkbox-container">Sosis
                         <input type="checkbox" name="Sosis" onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                            <span class="checkmark" name="sosis"></span>
                     </label>
                     <label className="checkbox-container">Kanada Jambonu
                         <input type="checkbox" name="Kanada Jambonu" onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                            <span class="checkmark" name="kanada jambonu"></span>
                     </label>
                     <label className="checkbox-container">Tavuk Izgara
                         <input type="checkbox" name="Tavuk Izgara" onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                            <span class="checkmark" name="tavuk ızgara"></span>
                     </label>
                     <label className="checkbox-container">Soğan
-                        <input type="checkbox" name="Soğan"onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                        <input type="checkbox" name="Soğan" onClick={handleCheckbox}/>
+                            <span class="checkmark" name="soğan"></span>
                     </label>
                     <label className="checkbox-container">Domates
                         <input type="checkbox" name="Domates" onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                            <span class="checkmark" name="domates"></span>
                     </label>
                     <label className="checkbox-container">Mısır
                         <input type="checkbox" name="Mısır" onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                            <span class="checkmark" name="mısır"></span>
                     </label>
                     <label className="checkbox-container">Sucuk
                         <input type="checkbox" name="Sucuk" onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                            <span class="checkmark" name="sucuk"></span>
                     </label>
                     <label className="checkbox-container">Jalepeno
-                        <input type="checkbox" name="Jalepeno"onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                        <input type="checkbox" name="Jalepeno" onClick={handleCheckbox}/>
+                            <span class="checkmark" name="jalepeno"></span>
                     </label>
                     <label className="checkbox-container">Sarımsak
                         <input type="checkbox" name="Sarımsak" onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                            <span class="checkmark" name="sarımsak"></span>
                     </label>
                     <label className="checkbox-container">Biber
                         <input type="checkbox" name="Biber" onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                            <span class="checkmark" name="biber"></span>
                     </label>
                     <label className="checkbox-container">Salam
                         <input type="checkbox" name="Salam" onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                            <span class="checkmark" name="salam"></span>
                     </label>
                     <label className="checkbox-container">Ananas
                         <input type="checkbox" name="Ananas" onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                            <span class="checkmark" name="ananas"></span>
                     </label>
                     <label className="checkbox-container">Kabak
                         <input type="checkbox" name="Kabak" onClick={handleCheckbox}/>
-                            <span class="checkmark"></span>
+                            <span class="checkmark" name="kabak"></span>
                     </label>
                 </div>
                 <div className='notes'>
