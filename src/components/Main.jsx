@@ -23,11 +23,12 @@ const bannerClass = {
     backgroundPosition: "center",
     backgroundImage: "url(" + banner + ")",
     width: "100%",
-    height: "800px",
+    height: "900px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     margin: "0 auto",
+    marginTop: "0px",
     padding: "10vh 0px"
 };
 
@@ -77,6 +78,7 @@ export default function Main() {
             <div>
                 <div className='banner' style={bannerClass}>
                     <img src={logo} alt="Teknolojik Yemekler" className='header' />
+                    <h4 className='mini-banner'>fırsatı kaçırma</h4>
                     <h1 className="banner-yazi">KOD ACIKTIRIR</h1>
                     <h1 className="banner-yazi">PİZZA, DOYURUR</h1>
                     <button id="aciktim" onClick={handleClick}>ACIKTIM</button>

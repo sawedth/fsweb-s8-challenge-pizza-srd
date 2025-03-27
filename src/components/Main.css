@@ -3,12 +3,22 @@
     margin-bottom: 40px;
 }
 
+
+.mini-banner{
+    font-family: "satisfy";
+    color: #FDC913;
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin-bottom: 0px;
+}
+
 .banner-yazi {
     font-family: "Roboto Condensed";
     color: white;
     font-size: 80px;
     margin: 0px;
     min-width: 550px;
+    font-weight: 200;
 }
 
 #aciktim {
